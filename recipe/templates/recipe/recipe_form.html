@@ -1,0 +1,58 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<form action="http://127.0.0.1:8000/app/recipe/" method="get">-->
+<!--    {% csrf_token %}</br>-->
+<!--<label for="recipe_name"><b>Recepi Name</b></label>-->
+<!--    <input type="text" placeholder="Enter Recipe Name" name="name" id="name" required><br>-->
+<!--<label for="recipe_type"><b>Recepi Type</b></label><br>-->
+<!--     <input type="radio" name="gender" value="male"> Male<br>-->
+<!--     <input type="radio" name="gender" value="female"> Female<br>-->
+<!--<label for="ingredients"><b>Recepi Ingredients</b></label>-->
+<!--    <input type="text" placeholder="Enter Recepi ingredients" name="ingredients" id="ingredients" required><br>-->
+<!--<label for="procedure"><b>Recepi Procedure</b></label>-->
+<!--    <input type="text" placeholder="Enter Procedure Description" name="procedure" id="procedure" required><br>-->
+<!--<button type="submit">Submit</button>-->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RecipeInfo</title>
+</head>
+<body>
+{% if msg %}
+<h2><b>{{ msg }}</b></h2>
+{% endif %}
+{% if errors %}
+    {{errors}}
+{% endif %}
+<h3>Welcome to Recipe World .....Register your Recipe...!</h3><br>
+
+    <form action="/app/saverecepi/" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+<!--        {{ form.as_p }}-->
+    <input type="hidden" name="id" value="{{recipe.id}}"><br/><br/>
+    Recipe Name :  <input type="text" name="recipe_name" value="{{recipe.recipe_name}}"><br/><br/>
+    <p>Please select your Recipe Type:</p>
+    VEG: <input type="radio" name="recipe_type" value="V">
+    NONVEG: <input type="radio" name="recipe_type" value="NV"><br/><br/>
+    Recipe Procedure :<input type="text" name="procedure" value="{{recipe.procedure}}"><br/><br/>
+    Recipe Ingredients :<input type="text" name="ingredients" value="{{recipe.ingredients}}"><br/><br/>
+    Recipe Image :<input type="file" name="recipe_image"><br/><br/>
+    <input type="submit" value="Submit">
+
+<br/><br/>
+</form>
+</body>
+</html>

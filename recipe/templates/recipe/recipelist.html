@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Records</h1>
+Recipe Name --- Recipe code
+        <ul>
+            {% for item in recipe_list %}
+              <li>{{item.recipe_name}}-----------{{item.recipe_type}}</li><br>
+            {% endfor %}
+        </ul>
+
+<br>
+
+</body>
+</html>

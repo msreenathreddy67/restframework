@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<table>
+    <p><b>{{msg}}</b></p><br>
+        <thead>
+        <td>Id &nbsp;&nbsp;</td>
+        <td>Recipe Name  &nbsp;&nbsp;</td>
+        <td>Recipe Type  &nbsp;&nbsp;</td>
+        <td>Ingredients &nbsp;&nbsp;&nbsp;</td>
+        <td>Procedure   &nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </thead>
+
+    {% for item in recipe_list %}
+    <tr>
+        <td><a href="/app/detail/{{item.id}}/">{{item.id}}</a></td>
+        <td>{{item.recipe_name}}</td>
+        <td>{{item.recipe_type}}</td>
+        <td>{{item.ingredients}}</td>
+        <td>{{item.procedure}}</td>
+        <td>{{item.procedure}}</td>
+        <td>
+            <a href="{{item.id}}/editrecipe/"><span class="glyphicon glyphicon-pencil" >Edit</span></a>
+            <a href="{{item.id }}/deleterecipe/">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<a href="/app/form">Create Recipe</a><br>
+<a href="/app/logout/">Logout</a>
+</body>
+</html>
